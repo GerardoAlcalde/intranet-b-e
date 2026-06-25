@@ -89,7 +89,7 @@ export default function Home() {
           <div className="repo-main">
             <section className="feature-strip" aria-labelledby="feature-title">
               <Image
-                src="/clippings/asociados-senior.png"
+                src="/clippings/encuentro-ny.png"
                 alt="Equipo Barros & Errázuriz"
                 fill
                 sizes="(max-width: 900px) 100vw, 760px"
