@@ -26,9 +26,8 @@ export function LegalShell({ active, children, showHeaderBrand = false }: ShellP
   return (
     <div className="legal-shell">
       <aside className="legal-sidebar" aria-label="Navegación lateral">
-        <Link className="sidebar-wordmark" href="/">
-          <span>BARROS &</span>
-          <span>ERRÁZURIZ</span>
+        <Link className="sidebar-square-logo" href="/" aria-label="Barros & Errázuriz">
+          <Image src="/bye-logo-square.svg" alt="" width={64} height={64} priority />
         </Link>
         <div className="sidebar-brand slim">
           <span>Intranet Legal</span>

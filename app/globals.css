@@ -2009,3 +2009,75 @@ a:focus-visible {
 .short-info-list p {
   font-size: 13px;
 }
+
+.sidebar-square-logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+.sidebar-square-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.repo-grid {
+  grid-template-areas:
+    "feature news"
+    "quick agenda";
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 25vw, 340px);
+  align-items: stretch;
+}
+
+.feature-strip {
+  grid-area: feature;
+}
+
+.news-panel {
+  grid-area: news;
+}
+
+.quick-repository {
+  grid-area: quick;
+}
+
+.today-panel {
+  grid-area: agenda;
+}
+
+.quick-repository,
+.today-panel {
+  min-height: 140px;
+}
+
+.today-panel {
+  display: grid;
+  align-content: start;
+}
+
+.today-panel .agenda-list {
+  gap: 4px;
+}
+
+.today-panel .agenda-item {
+  padding-top: 5px;
+}
+
+@media (max-width: 1080px) {
+  .repo-grid {
+    grid-template-areas:
+      "feature"
+      "news"
+      "quick"
+      "agenda";
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar-square-logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
