@@ -1,13 +1,10 @@
 import {
   Bell,
-  BriefcaseBusiness,
   Building2,
   Cake,
   CircleHelp,
   Grid2X2,
-  Landmark,
   Search,
-  Settings,
   BookOpen,
 } from "lucide-react";
 import Image from "next/image";
@@ -29,11 +26,11 @@ export function LegalShell({ active, children, showHeaderBrand = false }: ShellP
   return (
     <div className="legal-shell">
       <aside className="legal-sidebar" aria-label="Navegación lateral">
-        <div className={showHeaderBrand ? "sidebar-logo soft" : "sidebar-logo"}>
-          {showHeaderBrand ? <span>B&E</span> : <Landmark aria-hidden="true" size={26} />}
-        </div>
-        <div className="sidebar-brand">
-          <strong>Barros & Errázuriz</strong>
+        <Link className="sidebar-wordmark" href="/">
+          <span>BARROS &</span>
+          <span>ERRÁZURIZ</span>
+        </Link>
+        <div className="sidebar-brand slim">
           <span>Intranet Legal</span>
         </div>
 
@@ -72,16 +69,11 @@ export function LegalShell({ active, children, showHeaderBrand = false }: ShellP
               </span>
             </div>
           </div>
-          <Link className="settings-link" href="#">
-            <Settings aria-hidden="true" size={24} />
-            {showHeaderBrand ? "Ajustes" : "Configuración"}
-          </Link>
         </div>
       </aside>
 
       <div className={showHeaderBrand ? "legal-main" : "legal-main compact"}>
         <header className="legal-topbar" aria-label="Utilidades de intranet">
-          {showHeaderBrand ? <Link className="topbar-brand" href="/">Barros & Errázuriz</Link> : null}
           <nav aria-label="Navegación superior">
             <Link href="#">Mis Asuntos</Link>
             <Link href="#">Recursos</Link>
@@ -115,10 +107,6 @@ export function LegalShell({ active, children, showHeaderBrand = false }: ShellP
             {showHeaderBrand ? (
               <>
                 <Link href="#">
-                  <BriefcaseBusiness aria-hidden="true" size={18} />
-                  Portal B&E
-                </Link>
-                <Link href="#">
                   <CircleHelp aria-hidden="true" size={18} />
                   Preguntas Frecuentes
                 </Link>
@@ -129,7 +117,6 @@ export function LegalShell({ active, children, showHeaderBrand = false }: ShellP
                 <span aria-hidden="true" />
                 <Link href="#">Portales Internos</Link>
                 <Link href="#">Soporte TI</Link>
-                <Link href="#">Biblioteca</Link>
                 <Link href="#">Línea Ética</Link>
               </>
             ) : (

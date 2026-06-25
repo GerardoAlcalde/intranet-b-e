@@ -1134,3 +1134,593 @@ a:focus-visible {
     line-height: 28px;
   }
 }
+
+/* Compact repository direction requested for the B&E intranet MVP. */
+:root {
+  --sidebar-width: clamp(236px, 16vw, 270px);
+  --topbar-height: 62px;
+  --brand-red: #a30f1d;
+  --quiet-border: #d6d7d9;
+}
+
+.legal-sidebar {
+  padding: clamp(22px, 2vw, 28px) clamp(18px, 1.8vw, 24px) 22px;
+}
+
+.sidebar-wordmark {
+  display: block;
+  max-width: 178px;
+  color: var(--brand-red);
+  font-size: clamp(21px, 1.45vw, 25px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: 0.08em;
+}
+
+.sidebar-wordmark span {
+  display: block;
+}
+
+.sidebar-brand.slim {
+  margin-top: 12px;
+}
+
+.sidebar-brand.slim span {
+  color: var(--pure-white);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  margin-top: clamp(50px, 6vh, 72px);
+}
+
+.sidebar-nav a {
+  min-height: 50px;
+}
+
+.legal-topbar {
+  min-height: var(--topbar-height);
+  padding-block: 10px;
+}
+
+.legal-canvas {
+  padding: clamp(18px, 1.8vw, 28px);
+}
+
+.dashboard-page,
+.profile-page,
+.repo-page,
+.bio-repository-page {
+  max-width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.repo-heading {
+  margin-bottom: 16px;
+}
+
+.repo-heading p {
+  margin: 0 0 4px;
+  color: var(--brand-red);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.repo-heading h1 {
+  margin: 0;
+  color: var(--deep-navy);
+  font-size: clamp(28px, 2.7vw, 38px);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.primary-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.primary-action-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 142px;
+  padding: 18px;
+  border: 1px solid var(--quiet-border);
+  border-radius: 6px;
+  background: var(--pure-white);
+  color: var(--on-surface);
+  text-align: left;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.primary-action-card:hover {
+  border-color: var(--brand-red);
+  box-shadow: 0 10px 30px rgba(16, 24, 32, 0.06);
+  transform: translateY(-1px);
+}
+
+.primary-action-card > span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 4px;
+  background: #f3e6e7;
+  color: var(--brand-red);
+}
+
+.primary-action-card strong {
+  max-width: 240px;
+  color: #101820;
+  font-size: clamp(20px, 1.55vw, 24px);
+  font-weight: 800;
+  line-height: 1.14;
+}
+
+.primary-action-card small {
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(290px, 26vw, 340px);
+  gap: 16px;
+}
+
+.repo-main,
+.repo-side {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.feature-strip {
+  position: relative;
+  min-height: clamp(210px, 20vw, 270px);
+  overflow: hidden;
+  border: 1px solid var(--quiet-border);
+  border-radius: 6px;
+  background: var(--deep-navy);
+  color: var(--pure-white);
+}
+
+.feature-strip img {
+  object-fit: cover;
+  opacity: 0.5;
+  filter: grayscale(0.15);
+}
+
+.feature-strip::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(16, 24, 32, 0.9), rgba(16, 24, 32, 0.42) 55%, rgba(16, 24, 32, 0.18));
+  content: "";
+}
+
+.feature-strip > div {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  padding: clamp(28px, 3.4vw, 46px);
+}
+
+.feature-strip p {
+  width: fit-content;
+  margin: 0 0 14px;
+  padding-top: 12px;
+  border-top: 2px solid var(--brand-red);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.feature-strip h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 36px);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.quick-repository,
+.news-panel,
+.today-panel,
+.person-summary-card,
+.person-info-card,
+.bio-text-card,
+.biography-actions-card,
+.short-info-card {
+  border: 1px solid var(--quiet-border);
+  border-radius: 6px;
+  background: var(--pure-white);
+}
+
+.quick-repository,
+.news-panel,
+.today-panel,
+.person-info-card,
+.bio-text-card,
+.biography-actions-card,
+.short-info-card {
+  padding: 18px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--deep-navy);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.section-heading span,
+.section-heading a,
+.section-heading svg {
+  color: var(--brand-red);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quick-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.quick-link-card {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  min-height: 98px;
+  border: 1px solid var(--surface-container-high);
+  border-radius: 5px;
+  background: #f6f6f6;
+  color: var(--deep-navy);
+  font-weight: 800;
+}
+
+.quick-link-card svg {
+  color: var(--brand-red);
+}
+
+.quick-link-card span {
+  font-size: 13px;
+  text-align: center;
+}
+
+.quick-link-card:hover {
+  border-color: var(--brand-red);
+  background: #f8eeee;
+}
+
+.news-list,
+.agenda-list,
+.contact-row-grid,
+.short-info-list {
+  display: grid;
+  gap: 10px;
+}
+
+.news-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--surface-container-high);
+}
+
+.news-link:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.news-link strong,
+.news-link small,
+.agenda-item strong,
+.agenda-item small {
+  display: block;
+}
+
+.news-link strong {
+  color: var(--deep-navy);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.news-link small {
+  margin-top: 5px;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+}
+
+.news-link svg {
+  margin-top: 2px;
+  color: var(--brand-red);
+}
+
+.agenda-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--surface-container-high);
+}
+
+.agenda-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.agenda-item time {
+  color: var(--brand-red);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.agenda-item strong {
+  color: var(--deep-navy);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.agenda-item small {
+  margin-top: 2px;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+}
+
+.bio-repository-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(240px, 22vw, 280px);
+  gap: 16px;
+}
+
+.bio-repository-main,
+.bio-repository-side {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.person-summary-card {
+  display: grid;
+  grid-template-columns: clamp(160px, 14vw, 210px) 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 22px;
+}
+
+.person-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 238 / 318;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.person-summary p {
+  margin: 0 0 8px;
+  color: var(--brand-red);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.person-summary h1 {
+  margin: 0;
+  color: var(--deep-navy);
+  font-size: clamp(34px, 3.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+}
+
+.person-summary > span {
+  display: block;
+  margin-top: 10px;
+  color: var(--on-surface-variant);
+  font-size: 17px;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 24px minmax(90px, 130px) 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid var(--surface-container-high);
+}
+
+.contact-row:first-child {
+  border-top: 0;
+}
+
+.contact-row svg {
+  color: var(--brand-red);
+}
+
+.contact-row span {
+  color: var(--on-surface-variant);
+  font-size: 14px;
+}
+
+.contact-row strong {
+  color: var(--deep-navy);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.bio-text-card h2,
+.biography-actions-card h2,
+.short-info-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  color: var(--deep-navy);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.bio-text-card h2 svg {
+  color: var(--brand-red);
+}
+
+.bio-text-card p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--on-surface);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.bio-text-card p + p {
+  margin-top: 12px;
+}
+
+.biography-actions-card > div {
+  display: grid;
+  gap: 9px;
+}
+
+.biography-actions-card button {
+  min-height: 42px;
+  border: 1px solid var(--brand-red);
+  border-radius: 2px;
+  background: var(--pure-white);
+  color: var(--deep-navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.biography-actions-card button:hover {
+  background: #f8eeee;
+}
+
+.biography-actions-card .print-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-color: var(--deep-navy);
+  background: var(--deep-navy);
+  color: var(--pure-white);
+}
+
+.short-info-person {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--surface-container-high);
+}
+
+.short-info-person img {
+  width: 48px;
+  height: 48px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.short-info-person strong,
+.short-info-person small {
+  display: block;
+}
+
+.short-info-person strong {
+  color: var(--deep-navy);
+  font-size: 15px;
+}
+
+.short-info-person small {
+  margin-top: 2px;
+  color: var(--on-surface-variant);
+  font-size: 13px;
+}
+
+.short-info-list {
+  margin-top: 14px;
+}
+
+.short-info-list p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--on-surface);
+  font-size: 14px;
+}
+
+.short-info-list svg {
+  color: var(--brand-red);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1080px) {
+  .repo-grid,
+  .bio-repository-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repo-side,
+  .bio-repository-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar-wordmark {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .sidebar-brand.slim {
+    display: inline-block;
+    margin: 0 0 0 14px;
+    vertical-align: middle;
+  }
+
+  .sidebar-nav {
+    margin-top: 18px;
+  }
+
+  .primary-actions,
+  .quick-link-grid,
+  .repo-side,
+  .bio-repository-side,
+  .person-summary-card {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-strip {
+    min-height: 260px;
+  }
+
+  .contact-row {
+    grid-template-columns: 24px 1fr;
+  }
+
+  .contact-row strong {
+    grid-column: 2;
+  }
+}

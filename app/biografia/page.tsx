@@ -1,142 +1,145 @@
 import {
-  Building2,
+  BriefcaseBusiness,
+  Cake,
   CalendarDays,
   ChevronRight,
   FileText,
-  Headphones,
   Mail,
   Phone,
+  Printer,
+  Smartphone,
+  UserRound,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { LegalShell } from "../components/LegalShell";
 
-const practiceAreas = [
-  "Fusiones y Adquisiciones (M&A)",
-  "Mercado de Capitales",
-  "Derecho Corporativo General",
-  "Inversión Extranjera",
+const contactRows = [
+  { icon: Mail, label: "Correo", value: "evasquez@bye.cl" },
+  { icon: Phone, label: "Teléfono", value: "+56 2 2378 8940 · Anexo 243" },
+  { icon: Smartphone, label: "Celular", value: "9 9817 5960" },
+  { icon: UserRound, label: "Secretaria", value: "Jeannette Vargas · Anexo 240" },
+  { icon: BriefcaseBusiness, label: "Piso", value: "12" },
+  { icon: Cake, label: "Cumpleaños", value: "07 de junio" },
+  { icon: CalendarDays, label: "Fecha ingreso", value: "01/08/2000" },
+];
+
+const biographyActions = [
+  "Español",
+  "Inglés",
+  "PPT Español",
+  "PPT Inglés",
+  "Imprimir",
 ];
 
 export default function BiographyPage() {
   return (
     <LegalShell active="directory">
-      <section className="profile-page" aria-labelledby="lawyer-title">
+      <section className="bio-repository-page" aria-labelledby="lawyer-title">
         <nav className="breadcrumbs" aria-label="Breadcrumbs">
-          <Link href="/biografia">Bibliografía</Link>
+          <Link href="/">Panel de Control</Link>
           <ChevronRight aria-hidden="true" size={18} />
-          <span>Socio</span>
+          <span>Bibliografía</span>
         </nav>
 
-        <div className="profile-grid">
-          <div className="profile-main">
-            <article className="lawyer-card">
+        <div className="bio-repository-grid">
+          <main className="bio-repository-main">
+            <article className="person-summary-card">
               <Image
-                className="lawyer-photo"
-                src="/people/andres-larrain.png"
-                alt="Retrato de Andrés Larraín B."
+                className="person-photo"
+                src="/clippings/emilio-vasquez.png"
+                alt="Retrato de Emilio Vásquez M."
                 width={238}
                 height={318}
                 priority
               />
-              <div className="lawyer-summary">
-                <h1 id="lawyer-title">Andrés Larraín B.</h1>
-                <span className="role-pill">Socio</span>
-                <div className="lawyer-meta">
-                  <InfoItem icon={Mail} label="Correo" value="alarrain@barros.cl" />
-                  <InfoItem icon={Phone} label="Teléfono Directo" value="+56 2 2339 0000" />
-                  <InfoItem icon={Building2} label="Ubicación" value="Piso 15, Oficina 1502" />
-                  <InfoItem icon={CalendarDays} label="Fecha de Incorporación" value="Marzo 1998" />
-                </div>
+              <div className="person-summary">
+                <p>Socio</p>
+                <h1 id="lawyer-title">Emilio Vásquez M.</h1>
+                <span>M&A Corporativo, Socios</span>
               </div>
             </article>
 
-            <article className="bio-card">
-              <h2>
-                <FileText aria-hidden="true" size={26} />
+            <article className="person-info-card" aria-labelledby="contact-title">
+              <div className="section-heading">
+                <h2 id="contact-title">Información</h2>
+                <span>Ficha interna</span>
+              </div>
+              <div className="contact-row-grid">
+                {contactRows.map((row) => {
+                  const Icon = row.icon;
+
+                  return (
+                    <div className="contact-row" key={row.label}>
+                      <Icon aria-hidden="true" size={19} />
+                      <span>{row.label}</span>
+                      <strong>{row.value}</strong>
+                    </div>
+                  );
+                })}
+              </div>
+            </article>
+
+            <article className="bio-text-card" aria-labelledby="bio-title">
+              <h2 id="bio-title">
+                <FileText aria-hidden="true" size={22} />
                 Biografía
               </h2>
               <p>
-                Andrés Larraín se especializa en derecho corporativo, fusiones y
-                adquisiciones, y mercado de capitales. Ha participado en numerosas
-                transacciones locales e internacionales, asesorando a empresas públicas y
-                privadas en diversas industrias, incluyendo energía, infraestructura,
-                retail y servicios financieros.
+                Emilio Vásquez concentra su práctica en derecho corporativo, fusiones y
+                adquisiciones, gobiernos corporativos y materias societarias. Asesora a
+                clientes nacionales e internacionales en operaciones complejas y
+                coordinación de equipos multidisciplinarios.
               </p>
               <p>
-                Antes de incorporarse a Barros & Errázuriz, trabajó como asociado
-                internacional en una destacada firma en Nueva York. Es profesor de Derecho
-                Comercial en la Pontificia Universidad Católica de Chile y ha sido
-                reconocido consistentemente por publicaciones internacionales como
-                Chambers and Partners y The Legal 500.
+                Esta vista resume la información que el equipo consulta con mayor
+                frecuencia y mantiene las acciones de descarga, impresión y presentación
+                visibles para uso interno.
               </p>
             </article>
-          </div>
+          </main>
 
-          <aside className="profile-side" aria-label="Información secundaria">
-            <article className="side-card">
-              <h2>Áreas de Práctica</h2>
-              <ul className="practice-list">
-                {practiceAreas.map((area) => (
-                  <li key={area}>{area}</li>
+          <aside className="bio-repository-side" aria-label="Acciones de biografía">
+            <section className="biography-actions-card" aria-labelledby="actions-title">
+              <h2 id="actions-title">Bibliografías</h2>
+              <div>
+                {biographyActions.map((action) => (
+                  <button className={action === "Imprimir" ? "print-action" : ""} key={action} type="button">
+                    {action === "Imprimir" ? <Printer aria-hidden="true" size={18} /> : null}
+                    {action}
+                  </button>
                 ))}
-              </ul>
-            </article>
+              </div>
+            </section>
 
-            <article className="side-card assistant-card">
-              <h2>
-                <Headphones aria-hidden="true" size={28} />
-                Asistente
-              </h2>
-              <div className="assistant-person">
+            <section className="short-info-card" aria-labelledby="short-info-title">
+              <h2 id="short-info-title">Información corta</h2>
+              <div className="short-info-person">
                 <Image
                   src="/people/francisca-montes.png"
-                  alt="Francisca Montes"
-                  width={56}
-                  height={56}
+                  alt="Jeannette Vargas"
+                  width={48}
+                  height={48}
                 />
-                <div>
-                  <h3>Francisca Montes</h3>
-                  <p>Secretaria Ejecutiva</p>
-                </div>
+                <span>
+                  <strong>Jeannette Vargas</strong>
+                  <small>Secretaria · Anexo 240</small>
+                </span>
               </div>
-              <div className="assistant-contact">
+              <div className="short-info-list">
                 <p>
-                  <Phone aria-hidden="true" size={18} />
-                  Anexo: 452
+                  <Cake aria-hidden="true" size={17} />
+                  Cumpleaños: 07 de junio
                 </p>
                 <p>
-                  <Mail aria-hidden="true" size={18} />
-                  fmontes@barros.cl
+                  <CalendarDays aria-hidden="true" size={17} />
+                  Agenda: Comité M&A, 12:30
                 </p>
               </div>
-              <button type="button">Contactar Asistente</button>
-            </article>
+            </section>
           </aside>
         </div>
       </section>
     </LegalShell>
-  );
-}
-
-function InfoItem({
-  icon: Icon,
-  label,
-  value,
-}: {
-  icon: typeof Mail;
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="info-item">
-      <span>
-        <Icon aria-hidden="true" size={22} />
-      </span>
-      <div>
-        <dt>{label}</dt>
-        <dd>{value}</dd>
-      </div>
-    </div>
   );
 }

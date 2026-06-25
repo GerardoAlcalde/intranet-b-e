@@ -1,137 +1,164 @@
 import {
-  Cake,
   Clock3,
-  Folder,
+  ExternalLink,
+  FileText,
   FolderPlus,
+  Link2,
   Presentation,
+  ShieldCheck,
+  Users,
 } from "lucide-react";
 import Image from "next/image";
 import { LegalShell } from "./components/LegalShell";
 
-const birthdays = [
+const primaryActions = [
   {
-    name: "Valentina Rojas",
-    area: "Derecho Corporativo",
-    date: "Hoy",
-    image: "/people/valentina-rojas.png",
-  },
-  {
-    name: "Ignacio Valdés",
-    area: "División Tributaria",
-    date: "Mañana",
-    image: "/people/ignacio-valdes.png",
-  },
-  {
-    name: "Catalina Soto",
-    area: "Administración",
-    date: "26 Oct",
-    initials: "CS",
-  },
-];
-
-const actionCards = [
-  {
-    title: "Ingreso de Horas",
-    description: "Registra tu tiempo de hoy.",
-    icon: Clock3,
-    tone: "red",
-  },
-  {
-    title: "Ingreso Cliente / Materia",
-    description: "Abre nuevos registros.",
-    icon: FolderPlus,
-    tone: "blue",
-  },
-  {
-    title: "Presentaciones Corporativas",
-    description: "Accede a plantillas.",
+    title: "Presentación corporativa",
+    description: "Plantillas oficiales para español, inglés y PPT.",
     icon: Presentation,
-    tone: "beige",
+  },
+  {
+    title: "Ingreso cliente / materia",
+    description: "Acceso directo al flujo de alta de clientes y asuntos.",
+    icon: FolderPlus,
+  },
+  {
+    title: "Ingreso de horas",
+    description: "Registro diario de tiempos y revisión semanal.",
+    icon: Clock3,
   },
 ];
 
-const matters = [
+const quickLinks = [
+  { label: "LemonSuite", icon: Clock3 },
+  { label: "BUK", icon: Users },
+  { label: "Políticas internas", icon: ShieldCheck },
+  { label: "Bibliografía", icon: FileText },
+];
+
+const newsLinks = [
   {
-    code: "M-2023-0891",
-    name: "Fusión Adquisición - TechCorp",
-    status: "Activo",
+    title: "Competencia del TDLC en sede contenciosa",
+    meta: "25 mayo 2026 · Actualidad legal",
+    href: "https://www.bye.cl/competencia-del-tdlc-en-sede-contenciosa/",
   },
   {
-    code: "M-2023-1102",
-    name: "Asesoría Laboral - Inversiones Sur",
-    status: "Pendiente",
+    title: "The Legal Industry Reviews | Edición 25 N°1",
+    meta: "19 mayo 2026 · Noticias B&E",
+    href: "https://www.bye.cl/the-legal-industry-reviews-edicion-25-n1/",
   },
+  {
+    title: "Columna de opinión | Ley de Desalinización",
+    meta: "30 abril 2026 · Opinión",
+    href: "https://www.bye.cl/columna-de-opinion-ley-de-desalinizacion-desafios-pendientes-para-su-correcta-implementacion/",
+  },
+];
+
+const agendaItems = [
+  { time: "09:00", title: "Comité comunicaciones", detail: "Sala 1502" },
+  { time: "11:30", title: "Revisión presentación corporativa", detail: "Equipo Desarrollo & Mercado" },
+  { time: "16:00", title: "Cierre registro de horas", detail: "Recordatorio semanal" },
 ];
 
 export default function Home() {
   return (
     <LegalShell active="dashboard" showHeaderBrand>
-      <section className="dashboard-page" aria-labelledby="dashboard-title">
-        <div className="dashboard-heading">
-          <h1 id="dashboard-title">Buenos días, Alejandro.</h1>
-          <p>Aquí está tu resumen de hoy, 24 de Octubre.</p>
-        </div>
+      <section className="repo-page" aria-labelledby="dashboard-title">
+        <header className="repo-heading">
+          <p>Repositorio interno</p>
+          <h1 id="dashboard-title">Barros & Errázuriz</h1>
+        </header>
 
-        <div className="dashboard-grid">
-          <div className="dashboard-primary">
-            <div className="action-grid" aria-label="Acciones principales">
-              {actionCards.map((card) => {
-                const Icon = card.icon;
+        <section className="primary-actions" aria-label="Acciones principales">
+          {primaryActions.map((action) => {
+            const Icon = action.icon;
 
-                return (
-                  <button className="action-card" data-tone={card.tone} key={card.title} type="button">
-                    <span className="action-icon">
-                      <Icon aria-hidden="true" size={42} />
-                    </span>
-                    <span>
-                      <strong>{card.title}</strong>
-                      <small>{card.description}</small>
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+            return (
+              <button className="primary-action-card" key={action.title} type="button">
+                <span>
+                  <Icon aria-hidden="true" size={28} />
+                </span>
+                <strong>{action.title}</strong>
+                <small>{action.description}</small>
+              </button>
+            );
+          })}
+        </section>
 
-            <section className="matters-card" aria-labelledby="matters-title">
-              <h2 id="matters-title">Asuntos Recientes</h2>
-              <div className="matter-list">
-                {matters.map((matter) => (
-                  <article className="matter-row" key={matter.code}>
-                    <span className="matter-icon">
-                      <Folder aria-hidden="true" size={28} />
-                    </span>
-                    <div>
-                      <h3>{matter.code}</h3>
-                      <p>{matter.name}</p>
-                    </div>
-                    <span className="matter-status">{matter.status}</span>
-                  </article>
-                ))}
+        <div className="repo-grid">
+          <div className="repo-main">
+            <section className="feature-strip" aria-labelledby="feature-title">
+              <Image
+                src="/clippings/asociados-senior.png"
+                alt="Equipo Barros & Errázuriz"
+                fill
+                sizes="(max-width: 900px) 100vw, 760px"
+                priority
+              />
+              <div>
+                <p>Información interna</p>
+                <h2 id="feature-title">Un solo lugar para encontrar documentos, noticias y accesos B&E.</h2>
+              </div>
+            </section>
+
+            <section className="quick-repository" aria-labelledby="quick-title">
+              <div className="section-heading">
+                <h2 id="quick-title">Accesos rápidos</h2>
+                <span>Uso diario</span>
+              </div>
+              <div className="quick-link-grid">
+                {quickLinks.map((link) => {
+                  const Icon = link.icon;
+
+                  return (
+                    <button className="quick-link-card" key={link.label} type="button">
+                      <Icon aria-hidden="true" size={25} />
+                      <span>{link.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </section>
           </div>
 
-          <aside className="birthday-panel" aria-labelledby="birthdays-title">
-            <div className="panel-title">
-              <Cake aria-hidden="true" size={32} />
-              <h2 id="birthdays-title">Cumpleaños</h2>
-            </div>
-            <div className="birthday-panel-list">
-              {birthdays.map((birthday) => (
-                <article className="birthday-person" key={birthday.name}>
-                  {birthday.image ? (
-                    <Image src={birthday.image} alt={birthday.name} width={58} height={58} />
-                  ) : (
-                    <span>{birthday.initials}</span>
-                  )}
-                  <div>
-                    <h3>{birthday.name}</h3>
-                    <p>{birthday.area}</p>
-                    <small>{birthday.date}</small>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <aside className="repo-side" aria-label="Noticias y agenda">
+            <section className="news-panel" aria-labelledby="news-title">
+              <div className="section-heading">
+                <h2 id="news-title">Noticias B&E</h2>
+                <a href="https://www.bye.cl/noticias/" target="_blank" rel="noreferrer">
+                  Ver todas
+                </a>
+              </div>
+              <div className="news-list">
+                {newsLinks.map((news) => (
+                  <a className="news-link" href={news.href} key={news.href} target="_blank" rel="noreferrer">
+                    <span>
+                      <strong>{news.title}</strong>
+                      <small>{news.meta}</small>
+                    </span>
+                    <ExternalLink aria-hidden="true" size={18} />
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section className="today-panel" aria-labelledby="today-title">
+              <div className="section-heading">
+                <h2 id="today-title">Agenda de hoy</h2>
+                <Link2 aria-hidden="true" size={18} />
+              </div>
+              <div className="agenda-list">
+                {agendaItems.map((item) => (
+                  <article className="agenda-item" key={`${item.time}-${item.title}`}>
+                    <time>{item.time}</time>
+                    <span>
+                      <strong>{item.title}</strong>
+                      <small>{item.detail}</small>
+                    </span>
+                  </article>
+                ))}
+              </div>
+            </section>
           </aside>
         </div>
       </section>
